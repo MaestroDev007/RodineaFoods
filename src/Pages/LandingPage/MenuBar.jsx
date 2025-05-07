@@ -53,6 +53,23 @@ const MenuBar = () => {
 
   return (
 
+    <Stack>
+      <div className="bg-primary-0 w-full py-4 px-16  text-white flex items-center justify-between">
+        <Typography fontSize={`12px`}>
+          Delivery Service Available
+        </Typography>
+
+        <Stack direction={`row`}
+               spacing={2}>
+        <Typography fontSize={`12px`}>
+          Call Us: +91 9876543210
+        </Typography>
+        <Typography fontSize={`12px`}>
+          Monday-Sunday: 9am-11pm
+        </Typography>
+        </Stack>
+      </div>
+    
     <div className='flex px-4 pt-5 gap-8 justify-between items-center sm:px-8 sm:pt-8 lg:px-16 lg:pt-8'>
       <NavLink to={`/`} className={`size-[32%] pt-2 sm:pt-0 sm:size-[25%] lg:size-[20%] xl:size-[20%] `}>
         <figure >
@@ -170,6 +187,7 @@ const MenuBar = () => {
           </Stack>
        
        </div>
+       </Stack>
  
   )
 }
