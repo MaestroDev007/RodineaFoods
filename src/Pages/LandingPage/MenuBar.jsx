@@ -13,6 +13,9 @@ import ContactSupportIcon from '@mui/icons-material/ContactSupport';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import LoginIcon from '@mui/icons-material/Login';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import CallIcon from '@mui/icons-material/Call';
 import logo from "../../Images/Logos/logo.jpg"
 import { NavLink } from 'react-router-dom';
 
@@ -54,22 +57,70 @@ const MenuBar = () => {
   return (
 
     <Stack>
-      <div className=" hidden lg:bg-primary-0 lg:w-full lg:py-4 lg:px-20 lg:text-white lg:flex lg:items-center lg:justify-between">
+
+
+
+      <div className=" hidden lg:bg-primary-0 lg:w-full lg:py-2 lg:px-20 lg:text-white lg:flex lg:items-center lg:justify-between">
+        <Box sx={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 1,
+        }}>
+          <IconButton disableElevation
+                      disableFocusRipple
+                      disableRipple
+                      color="white">
+            <LocalShippingIcon color="white"/>
+          </IconButton>
         <Typography fontSize={`12px`}>
           Delivery Service Available
         </Typography>
+        </Box>
 
         <Stack direction={`row`}
-               spacing={8}>
-        <Typography fontSize={`12px`}>
+               spacing={4}>
+                <Box sx={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 1,
+        }}>
+                  <IconButton disableElevation
+                              disableFocusRipple
+                              disableRipple
+                              color="white">
+                                <CallIcon/>
+                   </IconButton>
+                  <Typography fontSize={`12px`}>
           Call Us: +91 9876543210
         </Typography>
-        <Typography fontSize={`12px`}>
-          Monday-Sunday: 9am-11pm
+                </Box>
+                <Box sx={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 1,
+        }}>
+                  <IconButton disableElevation
+                              disableFocusRipple
+                              disableRipple
+                              color="white">
+                           <CalendarMonthIcon/>
+                   </IconButton>
+                  <Typography fontSize={`12px`}>
+           Monday-Sunday: 9am-11pm
         </Typography>
+                </Box>
         </Stack>
       </div>
     
+
+
+
+
+
+
     <div className='flex px-4 pt-5 gap-8 justify-between items-center sm:px-8 sm:pt-8 lg:px-16 lg:pt-8'>
       <NavLink to={`/`} className={`size-[32%] pt-2 sm:pt-0 sm:size-[25%] lg:size-[20%] xl:size-[20%] `}>
         <figure >
