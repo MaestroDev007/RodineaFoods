@@ -60,7 +60,7 @@ const MenuBar = () => {
 
 
 
-      <div className=" hidden lg:bg-primary-0 lg:w-full lg:py-2 lg:px-20 lg:text-white lg:flex lg:items-center lg:justify-between">
+      <div className=" hidden lg:bg-primary-0 lg:w-full lg:py-1 lg:px-20 lg:text-white lg:flex lg:items-center lg:justify-between">
         <Box sx={{
           display: "flex",
           flexDirection: "row",
@@ -73,7 +73,7 @@ const MenuBar = () => {
                       color="white">
             <LocalShippingIcon color="white"/>
           </IconButton>
-        <Typography fontSize={`12px`}>
+        <Typography fontSize={`10px`}>
           Delivery Service Available
         </Typography>
         </Box>
@@ -92,7 +92,7 @@ const MenuBar = () => {
                               color="white">
                                 <CallIcon/>
                    </IconButton>
-                  <Typography fontSize={`12px`}>
+                  <Typography fontSize={`10px`}>
           Call Us: +91 9876543210
         </Typography>
                 </Box>
@@ -108,7 +108,7 @@ const MenuBar = () => {
                               color="white">
                            <CalendarMonthIcon/>
                    </IconButton>
-                  <Typography fontSize={`12px`}>
+                  <Typography fontSize={`10px`}>
            Monday-Sunday: 9am-11pm
         </Typography>
                 </Box>
@@ -121,7 +121,7 @@ const MenuBar = () => {
 
 
 
-    <div className='flex px-4 pt-5 gap-8 justify-between items-center sm:px-8 sm:pt-8 lg:px-16 lg:pt-8'>
+    <div className='flex px-4 pt-5 gap-8 justify-between items-center sm:px-8 sm:pt-8 lg:px-16 lg:pt-4'>
       <NavLink to={`/`} className={`size-[32%] pt-2 sm:pt-0 sm:size-[25%] lg:size-[20%] xl:size-[20%] `}>
         <figure >
             <img src={logo } alt='logo'/>
