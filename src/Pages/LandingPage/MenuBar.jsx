@@ -54,7 +54,7 @@ const MenuBar = () => {
   return (
 
     <Stack>
-      <div className="bg-primary-0 w-full py-4 px-20  text-white flex items-center justify-between">
+      <div className=" hidden lg:bg-primary-0 lg:w-full lg:py-4 lg:px-20 lg:text-white lg:flex lg:items-center lg:justify-between">
         <Typography fontSize={`12px`}>
           Delivery Service Available
         </Typography>
