@@ -54,13 +54,13 @@ const MenuBar = () => {
   return (
 
     <Stack>
-      <div className="bg-primary-0 w-full py-4 px-16  text-white flex items-center justify-between">
+      <div className="bg-primary-0 w-full py-4 px-20  text-white flex items-center justify-between">
         <Typography fontSize={`12px`}>
           Delivery Service Available
         </Typography>
 
         <Stack direction={`row`}
-               spacing={2}>
+               spacing={8}>
         <Typography fontSize={`12px`}>
           Call Us: +91 9876543210
         </Typography>
