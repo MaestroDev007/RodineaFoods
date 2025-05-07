@@ -125,7 +125,9 @@ const MenuBar = () => {
               <NavLink to={item.path}
                        key={`index`}>
                 <Typography variant='body1'
-                            fontWeight={`500`}>
+                            fontWeight={`500`}
+                              fontSize= "15px"
+                            >
                     {item.menu}
                 </Typography>
                 </NavLink>
