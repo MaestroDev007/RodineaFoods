@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Stack from "@mui/material/Stack";
+import MenuBar from './MenuBar';
+
 
 const LandingPage = () => {
   return (
-    <div>
-      
-    </div>
+    <Stack>
+     <MenuBar/>
+    </Stack>
   )
 }
 
