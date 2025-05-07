@@ -70,7 +70,9 @@ const MenuBar = () => {
           <IconButton disableElevation
                       disableFocusRipple
                       disableRipple
-                      color="white">
+                      sx={{
+              color: "white"  // Set icon color to white
+            }}>
             <LocalShippingIcon color="white"/>
           </IconButton>
         <Typography fontSize={`10px`}>
@@ -89,7 +91,9 @@ const MenuBar = () => {
                   <IconButton disableElevation
                               disableFocusRipple
                               disableRipple
-                              color="white">
+                                        sx={{
+              color: "white"  // Set icon color to white
+            }}>
                                 <CallIcon/>
                    </IconButton>
                   <Typography fontSize={`10px`}>
@@ -105,7 +109,9 @@ const MenuBar = () => {
                   <IconButton disableElevation
                               disableFocusRipple
                               disableRipple
-                              color="white">
+                                       sx={{
+              color: "white"  // Set icon color to white
+            }}>
                            <CalendarMonthIcon/>
                    </IconButton>
                   <Typography fontSize={`10px`}>
