@@ -194,7 +194,7 @@ const MenuBar = () => {
                        key={`index`}>
                 <Typography variant='body1'
                             fontWeight={`500`}
-                              fontSize= "13px"
+                              fontSize= "12px"
                             >
                     {item.menu}
                 </Typography>
