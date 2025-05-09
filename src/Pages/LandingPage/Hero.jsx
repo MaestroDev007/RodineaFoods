@@ -16,7 +16,7 @@ const Hero = () => {
                 lg: "5rem"
             },
             pt: {
-                xs: "5rem", 
+                xs: "4rem", 
                
             }
           }}

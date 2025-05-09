@@ -236,8 +236,8 @@ const MenuBar = () => {
               <ShoppingCartIcon sx={{
                       color:'primary.main',
                       fontSize: {
-                        xs: "28px",
-                        sm: "32px"
+                        xs: "24px",
+                        sm: "28px"
                       }}}
                    />
         </IconButton>
@@ -256,8 +256,8 @@ const MenuBar = () => {
                       },
                       color:'primary.main',
                       fontSize: {
-                        xs: "32px",
-                        sm: "40px"
+                        xs: "28px",
+                        sm: "32px"
                       }}}/>
         </IconButton>
           </Stack>
