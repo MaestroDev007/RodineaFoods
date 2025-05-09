@@ -139,15 +139,28 @@ const MenuBar = () => {
                 onClose={()=>(setIsOpen(false))}
                 >
 
-                    <IconButton color='primary.main'
+                    <IconButton onClick={()=>(setIsOpen(false))}
+                                size='large'
+                                edge="start"
                                 disableElevation
                                       disableFocusRipple
                                       disableRipple
                                  sx={{
                                   display: "flex",
+                                  justifyContent: "flex-end",
+                                  alignItems: "center",
+                                  paddingRight: "2rem",
+                                  paddingTop: "2rem",
+                                  color: "primary.main",
+                         
                                   
                                  }}>
-                           <MenuOpenIcon/>
+                           <MenuOpenIcon sx={{
+                                     fontSize: {
+                        xs: "32px",
+                        sm: "40px"
+                      }
+                           }}/>
                        </IconButton>
             <Stack spacing={4}
                    direction={`column`}
@@ -164,8 +177,13 @@ const MenuBar = () => {
                               flexDirection: "row",
                               gap: 1,
                               alignItems: "center",
+                              cursor: "pointer",
+                              borderBottom: "1px solid #ccc",
+                              paddingBottom: "1rem",
                             }}>
-                          <IconButton color='primary.main'
+                          <IconButton sx={{
+                            color: "primary.main"
+                          }}
                                       disableElevation
                                       disableFocusRipple
                                       disableRipple>
@@ -197,7 +215,8 @@ const MenuBar = () => {
         {
             menu.map((item, index)=>(
               <NavLink to={item.path}
-                       key={`index`}>
+                       key={`index`}
+                       >
                 <Typography variant='body1'
                             fontWeight={`500`}
                               fontSize= "12px"
@@ -217,8 +236,8 @@ const MenuBar = () => {
               <ShoppingCartIcon sx={{
                       color:'primary.main',
                       fontSize: {
-                        xs: "20px",
-                        sm: "24px"
+                        xs: "28px",
+                        sm: "32px"
                       }}}
                    />
         </IconButton>
@@ -237,8 +256,8 @@ const MenuBar = () => {
                       },
                       color:'primary.main',
                       fontSize: {
-                        xs: "26px",
-                        sm: "28px"
+                        xs: "32px",
+                        sm: "40px"
                       }}}/>
         </IconButton>
           </Stack>
