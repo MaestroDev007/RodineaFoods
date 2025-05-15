@@ -3,6 +3,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import Button from '../../Components/Button';
 import heroImage from  "../../../src/Images/LandingPage/Hero/hero.jpg"
 import heroImageB from  "../../../src/Images/LandingPage/Hero/chat 1.png"
@@ -125,11 +126,11 @@ const Hero = () => {
              spacing={3}
              sx={{
                display: {
-                xs: "block",
+                xs: "flex",
                 
                },
                justifyContent: "center",
-               alignItems:"flex-start"
+              //  alignItems:"center"
              }}
             >
           <Button buttonText={`Buy Now`}

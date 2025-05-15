@@ -20,6 +20,7 @@ const Button = ({
                disableRipple
                sx={{
                  textTransform: "none",
+                 textWrap: "nowrap",
                  borderRadius: "10px",
                  fontSize: "13px",
                  fontWeight: "bold",

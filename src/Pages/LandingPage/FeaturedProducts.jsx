@@ -8,12 +8,16 @@ import IconButton from '@mui/material/IconButton';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Box from '@mui/material/Box';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import Button from '../../Components/Button';
 import { NavLink } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { styled } from '@mui/material/styles';
+import tSlim from "../../../src/Images/LandingPage/FeatureProducts/tslim.jpg"
+import pSlim from "../../../src/Images/LandingPage/FeatureProducts/pslim.jpg"
+import mangoJuice from "../../../src/Images/LandingPage/FeatureProducts/mangojuice.jpg"
 
 
 const StyledSlider = styled(Slider)`
@@ -31,42 +35,42 @@ const FeaturedProducts = () => {
             name: "PureSlim",
             description: "Our signature weight management tea blend with natural herbs to boost metabolism and reduce bloating. Enjoy a cup daily for best results.",
            price: "$19.99",
-            image: "../../../src/Images/LandingPage/FeatureProducts/pslim.jpg"
+            image: pSlim
         },
         {
             id: 2,
             name: "Tummy Trim Powder",
             description: "A delicious powder supplement that supports digestive health and helps reduce belly fat. Mix with water or add to smoothies.",
             price: "$24.99",
-            image: "../../../src/Images/LandingPage/FeatureProducts/mangojuice.jpg"
+            image: mangoJuice
         },
         {
             id: 3,
             name: "WaterMelon Juice",
             description: "Refreshing watermelon juice packed with antioxidants and natural electrolytes. Perfect for hydration and detoxification.",
            price: "$12.99",
-            image: "../../../src/Images/LandingPage/FeatureProducts/pslim.jpg"
+            image: pSlim
         },
         {
             id: 4,
             name: "WellNess Bundle",
             description: "Our complete wellness package featuring PureSlim tea, Tummy Trim powder, and your choice of juice. Save 15% with this bundle.",
             price: "$49.99",
-            image: "../../../src/Images/LandingPage/FeatureProducts/mangojuice.jpg"
+            image: mangoJuice
         },
         {
             id: 5,
             name: "Orange Juice",
             description: "Vitamin C-rich orange juice that boosts immunity and energy levels. Made from freshly squeezed organic oranges.",
             price: "$12.99",
-            image: "../../../src/Images/LandingPage/FeatureProducts/mangojuice.jpg"
+            image: mangoJuice
         },
         {
             id: 6,
             name: "Mango Juice",
             description: "Tropical mango juice loaded with vitamins and fiber. Supports digestion and provides a natural energy boost.",
             price: "$13.99",
-            image: "../../../src/Images/LandingPage/FeatureProducts/tslim.jpg"
+            image: mangoJuice
         },
     ];
 
@@ -126,7 +130,7 @@ const FeaturedProducts = () => {
                         fontWeight={`400`}
                         sx={{
                             fontSize: {
-                                xs: "20px",
+                                xs: "16px",
                                 sm: "25px"
                             }
                         }}>
@@ -134,20 +138,31 @@ const FeaturedProducts = () => {
             </Typography>
 
             <NavLink to={``}>
-                <Box>
+                <Box  sx={{
+                    display: "flex",
+                    gap: "2rem",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    cursor: "pointer"
+                }}>
                       <Typography variant="h4"
                         color="primary.dark"
                         fontWeight={`500`}
                         sx={{
                             fontSize: {
-                                xs: "16px",
+                                xs: "12px",
                                 sm: "16px"
                             }
                         }}>
                 Explore More Products
             </Typography>
-            <IconButton>
-                
+            <IconButton >
+                <ArrowRightAltIcon sx={{
+                    fontSize: {
+                        xs: "16px",
+                        sm: "16px"
+                    }
+                }}/>
             </IconButton>
                 </Box>
             </NavLink>
