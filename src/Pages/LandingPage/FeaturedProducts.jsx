@@ -159,8 +159,9 @@ const FeaturedProducts = () => {
             <IconButton >
                 <ArrowRightAltIcon sx={{
                     fontSize: {
-                        xs: "16px",
-                        sm: "16px"
+                        xs: "10px",
+                        sm: "12px",
+                        md: "16px"
                     }
                 }}/>
             </IconButton>
@@ -172,7 +173,7 @@ const FeaturedProducts = () => {
             
         <Stack spacing={4}
                sx={{
-                pt: {
+                py: {
                     xs: "3rem",
                     sm: "4rem",
                     lg: "5rem"

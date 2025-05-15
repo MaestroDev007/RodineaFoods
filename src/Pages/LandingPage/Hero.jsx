@@ -127,6 +127,7 @@ const Hero = () => {
              sx={{
                display: {
                 xs: "flex",
+                sm: "block"
                 
                },
                justifyContent: "center",
