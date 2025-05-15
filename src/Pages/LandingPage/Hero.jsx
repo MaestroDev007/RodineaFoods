@@ -71,7 +71,7 @@ const Hero = () => {
                 lg: "3.75rem"
               },
               pr: {
-                xs: "8rem",
+                xs: "0rem",
                 md: "1rem",
                 lg: "2rem"
 
@@ -87,7 +87,7 @@ const Hero = () => {
          <Stack direction="column"
                 spacing={2}
                 mt={3}
-                pr={{xs:8,
+                pr={{xs:4,
                 //  sm: 20,
                   // md: 40,
                   //  lg:80
@@ -98,7 +98,7 @@ const Hero = () => {
                                 lineHeight: "24px",
                                 textAlign: "left",
                                 fontSize: {
-                                  xs: "18px"
+                                  xs: "16px"
                                 },
                                 color: "primary.dark",
                                 
