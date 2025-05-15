@@ -219,7 +219,7 @@ const MenuBar = () => {
                        >
                 <Typography variant='body1'
                             fontWeight={`500`}
-                              fontSize= "12px"
+                              fontSize= "14px"
                             >
                     {item.menu}
                 </Typography>

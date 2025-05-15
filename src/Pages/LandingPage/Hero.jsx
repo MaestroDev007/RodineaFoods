@@ -26,7 +26,7 @@ const Hero = () => {
             },
             width: "100%",
             height: {
-              lg: "100vh"
+              xl: "100vh"
             }
       
           }}
