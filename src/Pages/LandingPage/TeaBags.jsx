@@ -38,7 +38,7 @@ const TeaBags = () => {
             }
           }}>  
       <Stack>
-        <Typography variant="h1"
+        <Typography variant="h2"
                     sx={{
                         textAlign: {
                              xs: "Center",
@@ -67,7 +67,7 @@ const TeaBags = () => {
                           md:"16px",
                           lg:"15px"
                         },
-                        fontWeight:"300",
+                        fontWeight:"400",
                         pt: {
                           xs: "2rem"
                         },
@@ -80,7 +80,7 @@ const TeaBags = () => {
                       Rodinea Label Tea Bags is a rich blend of natural ingredients that are carefully selected to provide a unique and flavorful experience. The tea bags are made with high-quality tea leaves, which are ground and processed to create a smooth and flavorful beverage. The tea bags are also made with natural ingredients, such as honey and spices, to add a unique and delicious flavor to the beverage.
                     </Typography>
       <Stack pt={4}>
-        <Typography variant='h1'sx={{
+        <Typography variant='h2'sx={{
                         textAlign: {
                           xs: "Center",
                           lg: "left"
@@ -109,7 +109,7 @@ const TeaBags = () => {
                           md:"16px",
                           lg:"15px"
                         },
-                        fontWeight:"300",
+                        fontWeight:"400",
                         pt: {
                           xs: "2rem"
                         },
@@ -133,4 +133,4 @@ const TeaBags = () => {
   )
 }
 
-export default TeaBags
+export default TeaBags;
