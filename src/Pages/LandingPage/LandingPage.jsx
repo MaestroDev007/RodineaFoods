@@ -6,6 +6,7 @@ import TeaBags from './TeaBags';
 import WhyRodinea from './WhyRodinea';
 import FeaturedProducts from './FeaturedProducts';
 import ProductCategory from './ProductCategory';
+import Footer from './Footer';
 
 const LandingPage = () => {
   return (
@@ -16,6 +17,7 @@ const LandingPage = () => {
      <FeaturedProducts/>
      <TeaBags/>
      <WhyRodinea/>
+     <Footer/>
     </Stack>
   )
 }
