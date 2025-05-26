@@ -56,7 +56,13 @@ const MenuBar = () => {
 
   return (
 
-    <Stack>
+    <Stack sx={{
+      position: "sticky",
+      top: 0,
+      zIndex: 1100,
+      backgroundColor: "white",
+      // boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+        }}>
 
 
 
@@ -216,10 +222,22 @@ const MenuBar = () => {
             menu.map((item, index)=>(
               <NavLink to={item.path}
                        key={`index`}
+                       style={({ isActive }) => ({
+                         color: isActive ? 'var(--mui-palette-primary-main)' : 'inherit'
+                       })}
+                       className={({ isActive }) => 
+                         isActive ? "active-link" : "nav-link"
+                       }
                        >
                 <Typography variant='body1'
                             fontWeight={`500`}
-                              fontSize= "14px"
+                            fontSize= "14px"
+                            sx={{
+                              transition: 'color 0.3s ease',
+                              '&:hover': {
+                                color: 'primary.main'
+                              }
+                            }}
                             >
                     {item.menu}
                 </Typography>

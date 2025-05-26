@@ -10,6 +10,7 @@ import heroImageB from  "../../../src/Images/LandingPage/Hero/chat 1.png"
 import heroImageA from  "../../../src/Images/LandingPage/Hero/heroA.jpg"
 
 
+
 const Hero = () => {
   return (
    <Stack direction={"column"}

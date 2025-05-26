@@ -34,42 +34,42 @@ const FeaturedProducts = () => {
             id: 1,
             name: "PureSlim",
             description: "Our signature weight management tea blend with natural herbs to boost metabolism and reduce bloating. Enjoy a cup daily for best results.",
-           price: "$19.99",
+           price: "N19.99",
             image: pSlim
         },
         {
             id: 2,
             name: "Tummy Trim Powder",
             description: "A delicious powder supplement that supports digestive health and helps reduce belly fat. Mix with water or add to smoothies.",
-            price: "$24.99",
+            price: "N24.99",
             image: mangoJuice
         },
         {
             id: 3,
             name: "WaterMelon Juice",
             description: "Refreshing watermelon juice packed with antioxidants and natural electrolytes. Perfect for hydration and detoxification.",
-           price: "$12.99",
+           price: "N12.99",
             image: pSlim
         },
         {
             id: 4,
             name: "WellNess Bundle",
             description: "Our complete wellness package featuring PureSlim tea, Tummy Trim powder, and your choice of juice. Save 15% with this bundle.",
-            price: "$49.99",
+            price: "N49.99",
             image: mangoJuice
         },
         {
             id: 5,
             name: "Orange Juice",
             description: "Vitamin C-rich orange juice that boosts immunity and energy levels. Made from freshly squeezed organic oranges.",
-            price: "$12.99",
+            price: "N12.99",
             image: mangoJuice
         },
         {
             id: 6,
             name: "Mango Juice",
             description: "Tropical mango juice loaded with vitamins and fiber. Supports digestion and provides a natural energy boost.",
-            price: "$13.99",
+            price: "N13.99",
             image: mangoJuice
         },
     ];
@@ -79,36 +79,38 @@ const FeaturedProducts = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 1,  // Changed from 4 to 1 for smoother scrolling
     initialSlide: 0,
+    autoplay: true,     // Added autoplay
+    autoplaySpeed: 4000, // 4 seconds per slide
+    pauseOnHover: true,
     arrow: true,
-      prevArrow: <button style={{ color: 'black', fontSize: '24px' }}>&lt;</button>,
+    prevArrow: <button style={{ color: 'black', fontSize: '24px' }}>&lt;</button>,
     nextArrow: <button style={{ color: 'black', fontSize: '24px' }}>&gt;</button>,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
+        {
+            breakpoint: 1280,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 960,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                arrows: false  // Hide arrows on mobile
+            }
         }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 340,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
     ]
   };
   return (
@@ -127,11 +129,27 @@ const FeaturedProducts = () => {
                alignItems={`center`}>
             <Typography variant='h3'
                         color= "black"
-                        fontWeight={`400`}
+                        fontWeight={`500`}
                         sx={{
                             fontSize: {
-                                xs: "16px",
-                                sm: "25px"
+                                xs: "18px",
+                                sm: "25px",
+                                md: "28px"
+                            },
+                            position: 'relative',
+                            display: 'inline-block',
+                            '&:after': {
+                                content: '""',
+                                position: 'absolute',
+                                width: '10%',
+                                height: '3px',
+                                bottom: '-8px',
+                                left: '0',
+                                backgroundColor: 'primary.main',
+                                transition: 'width 0.3s ease',
+                            },
+                            '&:hover:after': {
+                                width: '100%'
                             }
                         }}>
                 Featured Products
@@ -146,7 +164,7 @@ const FeaturedProducts = () => {
                     cursor: "pointer"
                 }}>
                       <Typography variant="h4"
-                        color="primary.dark"
+                        color="primary.main"
                         fontWeight={`500`}
                         sx={{
                             fontSize: {
@@ -198,23 +216,58 @@ const FeaturedProducts = () => {
                             sm: "380px",
                             md: "400px",
                             lg: "450px"
-                        }
-                       
+                        },
+                        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                        '&:hover': {
+                            transform: 'translateY(-8px)',
+                            boxShadow: '0 12px 20px rgba(0, 0, 0, 0.1)'
+                        },
+                        background: 'rgba(255, 255, 255, 0.8)',
+                        backdropFilter: 'blur(10px)',
+                        border: '1px solid rgba(255, 255, 255, 0.18)'
                     }}>
-                <CardMedia
-                    component="img"
-                    image={product.image}
-                    alt={`${product.name} - ${product.description.split('.')[0]}`}
-                     sx={{
-        height: {
-            xs: "150px",
-            sm: "180px", 
-            md: "200px",
-            lg: "220px"
-        },
-        objectFit: "cover"
-    }}
+                <Box sx={{ 
+                    position: 'relative',
+                    overflow: 'hidden'
+                }}>
+                    <CardMedia
+                        component="img"
+                        image={product.image}
+                        alt={`${product.name} - ${product.description.split('.')[0]}`}
+                        sx={{
+                            height: {
+                                xs: "150px",
+                                sm: "180px", 
+                                md: "200px",
+                                lg: "220px"
+                            },
+                            objectFit: "cover",
+                            transition: 'transform 0.5s ease',
+                            '&:hover': {
+                                transform: 'scale(1.05)'
+                            }
+                        }}
                     />
+                    <Box sx={{
+                        position: 'absolute',
+                        top: 10,
+                        right: 10,
+                        backgroundColor: 'primary.main',
+                        color: 'white',
+                        borderRadius: '50%',
+                        width: 40,
+                        height: 40,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        fontWeight: 'bold',
+                        boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
+                    }}>
+                        <Typography variant="body2" sx={{ fontSize: '12px' }}>
+                            New
+                        </Typography>
+                    </Box>
+                </Box>
                 <CardContent sx={{
                     display: "flex",
                     flexDirection: "column",
@@ -232,33 +285,44 @@ const FeaturedProducts = () => {
                            justifyContent={`flex-start`}
                            sx={{ width: "100%" }}>
                     <Typography gutterBottom 
-                                variant="h5" 
-                                component="p"
-                                sx={{
-                                    fontWeight: "500",
-                                    textAlign: "left",
-                                    fontSize: "16px",
-                                }}>
+                        variant="h5" 
+                        component="p"
+                        sx={{
+                            fontWeight: "600",
+                            textAlign: "left",
+                            fontSize: {
+                                xs: "14px",
+                                sm: "16px",
+                                md: "18px"
+                            },
+                            letterSpacing: '0.5px',
+                            color: 'rgba(0, 0, 0, 0.87)',
+                            mb: 1
+                        }}>
                         {product.name}
                     </Typography>
                     <Typography variant="body2" 
-                                gutterBottom
-                                sx={{
-                                    fontWeight: "400",
-                                    fontSize: "12px",
-                                    textAlign: "left",
-                                    display: {
-                                    xs: "none",
-                                    md: "block"
-                                
-                                },
-                                   display: "-webkit-box",
-                    WebkitLineClamp: 3,
-                    WebkitBoxOrient: "vertical",
-                     overflow: "hidden",
-                    textOverflow: "ellipsis",
+                        gutterBottom
+                        sx={{
+                            fontWeight: "400",
+                            fontSize: {
+                                xs: "11px",
+                                sm: "12px",
+                                md: "13px"
+                            },
+                            lineHeight: 1.5,
+                            textAlign: "left",
+                            display: "-webkit-box",
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            color: 'rgba(0, 0, 0, 0.6)',
+                            height: {
+                                xs: "50px",
+                                sm: "60px"
                             }
-                                }>
+                        }}>
                         {product.description}
                     </Typography>
                     </Stack>
@@ -277,17 +341,37 @@ const FeaturedProducts = () => {
                                         fontSize: {
                                             xs: "18px",
                                             md: "24px"
-                                        }
+                                        },
+                                        fontWeight: 600,
+                                        position: 'relative',
+                                        display: 'inline-block',
+                                        padding: '4px 8px',
+                                        borderRadius: '4px',
+                                        backgroundColor: 'rgba(0, 0, 0, 0.03)',
                                     }}>
-                            {product.price}
-                        </Typography>
-                        <Button buttonText="Add"
-                                variant='contained'
-                                // icon={<ShoppingCartIcon/>}
-                                sx={{
-                                    width: "100%",
-                                    fontSize: "14px",
-                                }}/>
+                                    {product.price}
+                                </Typography>
+                        <Button 
+                            buttonText="Add to Cart"
+                            variant='contained'
+                            startIcon={<ShoppingCartIcon sx={{ fontSize: '16px' }} />}
+                            sx={{
+                                width: "100%",
+                                fontSize: {
+                                    xs: "12px",
+                                    sm: "14px"
+                                },
+                                py: 1,
+                                borderRadius: '25px',
+                                textTransform: 'none',
+                                boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+                                transition: 'all 0.3s ease',
+                                '&:hover': {
+                                    transform: 'translateY(-2px)',
+                                    boxShadow: '0 6px 12px rgba(0,0,0,0.15)'
+                                }
+                            }}
+                        />
                     </Stack>
                 </CardContent>
             </Card>
@@ -295,7 +379,23 @@ const FeaturedProducts = () => {
             }
         </StyledSlider>    
         </Stack>
-  </Stack>
+  <Stack sx={{
+      px: {
+          xs: "1rem",
+          sm: "1.5rem",
+          md: "3rem", 
+          lg: "5rem"
+      },
+      pt: {
+          xs: "4rem",
+          sm: "5rem",
+          md: "7rem", 
+      },
+      maxWidth: "1440px",
+      mx: "auto"
+  }}>
+        </Stack>
+        </Stack>
   )
 }
 
