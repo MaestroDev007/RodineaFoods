@@ -1,6 +1,6 @@
 import React from 'react'
 import Stack from "@mui/material/Stack";
-import Grid from "@mui/material/Grid";
+import Grid from '@mui/material/Grid';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
@@ -59,7 +59,7 @@ const Footer = () => {
     }}>
       <Grid container spacing={4}>
         {/* Company Info & Logo */}
-        <Grid item xs={12} md={4}>
+        <Grid  xs={12} md={4}>
           {/* <Box sx={{ mb: 2 }}>
             <img 
               src={logo} 
@@ -120,7 +120,7 @@ const Footer = () => {
         </Grid>
         
         {/* Quick Links */}
-        <Grid item xs={6} md={2}>
+        <Grid xs={6} md={2}>
           <Typography variant="h6" sx={{ 
             fontSize: { xs: '1rem', md: '1.1rem' },
             fontWeight: 600,
@@ -162,7 +162,7 @@ const Footer = () => {
         </Grid>
         
         {/* Products */}
-        <Grid item xs={6} md={2}>
+        <Grid xs={6} md={2}>
           <Typography variant="h6" sx={{ 
             fontSize: { xs: '1rem', md: '1.1rem' },
             fontWeight: 600,
@@ -204,7 +204,7 @@ const Footer = () => {
         </Grid>
         
         {/* Contact & Newsletter */}
-        <Grid item xs={12} md={4}>
+        <Grid xs={12} md={4}>
           <Typography variant="h6" sx={{ 
             fontSize: { xs: '1rem', md: '1.1rem' },
             fontWeight: 600,

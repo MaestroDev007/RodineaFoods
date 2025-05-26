@@ -221,7 +221,7 @@ const MenuBar = () => {
         {
             menu.map((item, index)=>(
               <NavLink to={item.path}
-                       key={`index`}
+                       key={index}
                        style={({ isActive }) => ({
                          color: isActive ? 'var(--mui-palette-primary-main)' : 'inherit'
                        })}
