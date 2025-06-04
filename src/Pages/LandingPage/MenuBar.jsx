@@ -36,14 +36,14 @@ const MenuBar = () => {
         path: ""
       },
       {
-        menu: "Contact Us ",
+        menu: "Contact Us",
         icon: <ContactSupportIcon/>,
-        path: ""
+        path: "/contact"
       },
       {
         menu: "About Us",
         icon: < InfoIcon />,
-        path: ""
+        path: "/about"
       },
       {
         menu: "Login",
