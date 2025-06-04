@@ -113,95 +113,102 @@ const WhyRodinea = () => {
         </Typography>
       </Box>
 
-      {/* Benefits Cards with Grid Layout and Animation */}
-      <Grid 
-        container 
-        spacing={4} 
-        ref={cardsRef}
-        component={motion.div}
-        initial={{ opacity: 0, y: 30 }}
-        animate={cardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-        transition={{ duration: 0.8, staggerChildren: 0.2 }}
+     <Box
+  ref={cardsRef}
+  component={motion.div}
+  initial={{ opacity: 0, y: 30 }}
+  animate={cardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+  transition={{ duration: 0.8 }}
+  sx={{
+    display: "flex",
+    flexDirection: { xs: "column", lg: "row" },
+    gap: { xs: 4, lg: 4 },
+    justifyContent: { lg: "space-between" },
+    alignItems: "stretch", // ensures equal height on lg+
+  }}
+>
+  {benefitCards.map((card, index) => (
+    <Box
+      key={index}
+      component={motion.div}
+      initial={{ opacity: 0, y: 20 }}
+      animate={cardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.5, delay: index * 0.2 }}
+      sx={{
+        width: { xs: "100%", lg: "32%" }, // 3 equal-width cards on lg+
+        display: "flex",
+      }}
+    >
+      <Card
+        elevation={2}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          borderRadius: "12px",
+          overflow: "hidden",
+          transition: "transform 0.3s, box-shadow 0.3s",
+          "&:hover": {
+            transform: "translateY(-8px)",
+            boxShadow: 8,
+          },
+          width: "100%", // take full width of its Box
+        }}
       >
-        {benefitCards.map((card, index) => (
-          <Grid 
-            item 
-            xs={12} 
-            sm={6}
-            md={4} 
-            key={index}
-            component={motion.div}
-            initial={{ opacity: 0, y: 20 }}
-            animate={cardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-          >
-            <Card 
-              elevation={2}
+        <Box sx={{ position: "relative", pt: "56.25%", overflow: "hidden" }}>
+          <CardMedia
+            component="img"
+            image={card.image}
+            alt={card.alt}
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4))",
+            }}
+          />
+        </Box>
+
+        <CardContent sx={{ flexGrow: 1, p: 3 }}>
+          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+            {card.icon}
+            <Typography
+              variant="h5"
+              component="h3"
               sx={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                borderRadius: "12px",
-                overflow: "hidden",
-                transition: "transform 0.3s, box-shadow 0.3s",
-                "&:hover": {
-                  transform: "translateY(-8px)",
-                  boxShadow: 8
-                }
+                ml: 1.5,
+                fontWeight: 600,
+                color: "text.primary",
               }}
             >
-              <Box sx={{ position: "relative", pt: "56.25%", overflow: "hidden" }}>
-                <CardMedia
-                  component="img"
-                  image={card.image}
-                  alt={card.alt}
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover"
-                  }}
-                />
-                <Box 
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    background: "linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4))"
-                  }}
-                />
-              </Box>
-              
-              <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-                  {card.icon}
-                  <Typography 
-                    variant="h5" 
-                    component="h3"
-                    sx={{ 
-                      ml: 1.5,
-                      fontWeight: 600,
-                      color: "text.primary" 
-                    }}
-                  >
-                    {card.title}
-                  </Typography>
-                </Box>
-                
-                <Divider sx={{ mb: 2 }} />
-                
-                <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7 }}>
-                  {card.description}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+              {card.title}
+            </Typography>
+          </Box>
+
+          <Divider sx={{ mb: 2 }} />
+
+          <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+            {card.description}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Box>
+  ))}
+</Box>
+
     </Stack>
   )
 }

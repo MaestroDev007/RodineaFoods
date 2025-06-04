@@ -1,364 +1,168 @@
-import React from 'react'
-import Stack from "@mui/material/Stack"
-import Typography from "@mui/material/Typography"
-import Box from "@mui/material/Box"
-import Grid from '@mui/material/Grid'; // Correct import for Grid
-import Divider from "@mui/material/Divider"
-import Fade from "@mui/material/Fade"
-import { useInView } from 'react-intersection-observer'
-import teabag from "../../../src/Images/LandingPage/tea-1132529_1280.jpg"
-import LocalCafeIcon from '@mui/icons-material/LocalCafe'
-import SpaIcon from '@mui/icons-material/Spa';
-import RecyclingIcon from '@mui/icons-material/Recycling'
-import Button from '@mui/material/Button'
+import React, { useState, useEffect } from 'react';
+import { Coffee, Leaf, Recycle, ArrowRight } from 'lucide-react';
 
 const TeaBags = () => {
-  const { ref: titleRef, inView: titleInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2
-  }) || { ref: null, inView: false };
+  const [isVisible, setIsVisible] = useState(false);
 
-  const { ref: contentRef, inView: contentInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-    delay: 300
-  }) || { ref: null, inView: false };
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 200);
+    return () => clearTimeout(timer);
+  }, []);
 
   const teaFlavors = [
-    { name: "Honey Lemon", color: "#f9a825" },
-    { name: "Mint Fresh", color: "#66bb6a" },
-    { name: "Ginger Spice", color: "#ef6c00" },
-    { name: "Chamomile", color: "#ffd54f" }
+    { name: 'Honey Lemon', color: '#f9a825' },
+    { name: 'Mint Fresh', color: '#66bb6a' },
+    { name: 'Ginger Spice', color: '#ef6c00' },
+    { name: 'Chamomile', color: '#ffd54f' }
+  ];
+
+  const benefits = [
+    { icon: Coffee, text: 'Premium Quality' },
+    { icon: Leaf, text: 'Natural Ingredients' },
+    { icon: Recycle, text: 'Eco-Friendly' }
   ];
 
   return (
-    <Stack sx={{
-            px: {
-                xs: "1.5rem",
-                md: "3rem", 
-                lg: "5rem"
-            },
-            py: {
-                xs: "3rem", 
-                lg: "5rem"
-            }, 
-            backgroundColor: "black",
-            backgroundImage: `url(${teabag})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            position: "relative",
-            overflow: "hidden",
-            minHeight: "80vh",
-            display: "flex",
-            alignItems: "center"
-          }}
-          >
-        {/* Animated Gradient Overlay */}
-        <Box className='inset-0 absolute z-10' sx={{
-          background: 'linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 100%)',
-          width: '100%',
-          height: '100%',
-          animation: 'gradientShift 15s ease infinite',
-          '@keyframes gradientShift': {
-            '0%': { opacity: 0.7 },
-            '50%': { opacity: 0.8 },
-            '100%': { opacity: 0.7 }
-          }
-        }}></Box>
-        
-        {/* Content Container */}
-        <Grid container spacing={4} className='z-20'>
-          <Grid xs={12} lg={6}>
-            <Box ref={titleRef} sx={{
-              transform: titleInView ? 'translateY(0)' : 'translateY(50px)',
-              opacity: titleInView ? 1 : 0,
-              transition: 'all 0.8s ease-out',
-              mb: 4
-            }}>
-              <Typography 
-                variant="h2"
-                sx={{
-                  textAlign: {
-                    xs: "Center",
-                    lg: "left"
-                  },
-                  fontSize: {
-                    xs: "1.5rem",
-                    sm: "1.75rem",
-                    md: "2.5rem"
-                  },
-                  fontWeight: 700,
-                  color: "white",
-                  position: "relative",
-                  '&::after': {
-                    content: '""',
-                    position: 'absolute',
-                    bottom: '-15px',
-                    left: {
-                      xs: '50%',
-                      lg: '0'
-                    },
-                    transform: {
-                      xs: 'translateX(-50%)',
-                      lg: 'translateX(0)'
-                    },
-                    width: '80px',
-                    height: '4px',
-                    background: 'linear-gradient(90deg, #f9a825, #66bb6a)',
-                    borderRadius: '2px'
-                  }
-                }}>
-                Rich Blend Of <br/> 
-                <Box component="span" sx={{ 
-                  color: 'primary.main',
-                  textShadow: '0 0 15px rgba(255,255,255,0.3)'
-                }}>
-                  Natural Ingredients
-                </Box>
-              </Typography>
-            </Box>
-            
-            <Box ref={contentRef} sx={{
-              transform: contentInView ? 'translateY(0)' : 'translateY(30px)',
-              opacity: contentInView ? 1 : 0,
-              transition: 'all 0.8s ease-out',
-              transitionDelay: '0.3s'
-            }}>
-              <Typography 
-                variant='body1'
-                sx={{
-                  textAlign: {
-                    xs: "left",
-                    md: "center",
-                    lg: "left"
-                  },
-                  color: "rgba(255, 255, 255, 0.9)",
-                  fontSize: {
-                    xs: "15px",
-                    md: "16px",
-                    lg: "15px"
-                  },
-                  fontWeight: "400",
-                  pt: {
-                    xs: "2rem"
-                  },
-                  px: {
-                    xs: "0",
-                    md: "40px",
-                    lg: "0"
-                  },
-                  lineHeight: 1.8
-                }}>
-                Rodinea Label Tea Bags is a rich blend of natural ingredients that are carefully selected to provide a unique and flavorful experience. The tea bags are made with high-quality tea leaves, which are ground and processed to create a smooth and flavorful beverage.
-              </Typography>
-              
-              {/* Benefits Icons */}
-              <Grid container spacing={2} sx={{ mt: 4 }}>
-                {[
-                  { icon: <LocalCafeIcon />, text: "Premium Quality" },
-                  { icon: <SpaIcon />, text: "Natural Ingredients" },
-                  { icon: <RecyclingIcon />, text: "Eco-Friendly" }
-                ].map((benefit, index) => (
-                  <Grid xs={4} key={index}>
-                    <Fade in={contentInView} style={{ transitionDelay: `${300 + (index * 150)}ms` }}>
-                      <Box sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        textAlign: 'center'
-                      }}>
-                        <Box sx={{
-                          color: 'primary.main',
-                          fontSize: '2rem',
-                          mb: 1,
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          width: '50px',
-                          height: '50px',
-                          borderRadius: '50%',
-                          background: 'rgba(255,255,255,0.1)',
-                          backdropFilter: 'blur(5px)'
-                        }}>
-                          {benefit.icon}
-                        </Box>
-                        <Typography variant="body2" sx={{ color: 'white' }}>
-                          {benefit.text}
-                        </Typography>
-                      </Box>
-                    </Fade>
-                  </Grid>
-                ))}
-              </Grid>
-            </Box>
-            
-            <Box sx={{ mt: 6 }}>
-              <Typography 
-                variant='h2'
-                sx={{
-                  textAlign: {
-                    xs: "Center",
-                    lg: "left"
-                  },
-                  color: "white",
-                  fontSize: {
-                    xs: "1.5rem",
-                    sm: "1.75rem",
-                    md: "2rem"
-                  },
-                  lineHeight: "1.4",
-                  fontWeight: 600
-                }}>
-                Same Tea, <br/>
-                <Box component="span" sx={{ color: 'primary.main' }}>
-                  Different Flavours
-                </Box>
-              </Typography>
+    <div 
+      className="relative min-h-screen bg-black overflow-hidden"
+      style={{
+        backgroundImage: 'url(https://images.unsplash.com/photo-1571934811356-5cc061b6821f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+    >
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/75" />
 
-              <Typography 
-                variant='body1'
-                sx={{
-                  textAlign: {
-                    xs: "left",
-                    md: "center",
-                    lg: "left"
-                  },  
-                  color: "rgba(255, 255, 255, 0.9)",
-                  fontSize: {
-                    xs: "15px",
-                    md: "16px",
-                    lg: "15px"
-                  },
-                  fontWeight: "400",
-                  pt: {
-                    xs: "1rem"
-                  },
-                  px: {
-                    xs: "0",
-                    md: "40px",
-                    lg: "0"
-                  },
-                  mb: 3
-                }}>
-                Rodinea Label Tea Bags are available in different flavours, making it easy for you to choose the perfect taste for your needs.
-              </Typography>
-              
-              {/* Flavor Pills */}
-              <Box sx={{ 
-                display: 'flex', 
-                flexWrap: 'wrap', 
-                gap: 2,
-                justifyContent: {
-                  xs: 'center',
-                  lg: 'flex-start'
-                },
-                mt: 3
-              }}>
-                {teaFlavors.map((flavor, index) => (
-                  <Fade 
-                    key={index} 
-                    in={contentInView} 
-                    style={{ transitionDelay: `${600 + (index * 150)}ms` }}
-                  >
-                    <Box sx={{
-                      backgroundColor: `${flavor.color}20`,
-                      border: `1px solid ${flavor.color}`,
-                      borderRadius: '30px',
-                      px: 2,
-                      py: 1,
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 1
-                    }}>
-                      <Box sx={{
-                        width: 10,
-                        height: 10,
-                        borderRadius: '50%',
-                        backgroundColor: flavor.color
-                      }}></Box>
-                      <Typography sx={{ color: 'white', fontSize: '0.9rem' }}>
-                        {flavor.name}
-                      </Typography>
-                    </Box>
-                  </Fade>
-                ))}
-              </Box>
-              
-              <Button 
-                variant="contained" 
-                color="primary"
-                sx={{
-                  mt: 4,
-                  borderRadius: '30px',
-                  px: 4,
-                  py: 1.5,
-                  textTransform: 'none',
-                  fontWeight: 600,
-                  boxShadow: '0 8px 20px rgba(0,0,0,0.3)',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-3px)',
-                    boxShadow: '0 12px 25px rgba(0,0,0,0.4)'
-                  }
-                }}
-              >
-                Explore Our Teas
-              </Button>
-            </Box>
-          </Grid>
+      <div className="relative z-10 container mx-auto px-6 lg:px-12 py-16 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           
-          {/* Right side - Tea Bag Showcase */}
-          <Grid xs={12} lg={6} sx={{ 
-            display: { xs: 'none', lg: 'flex' },
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>
-            <Box sx={{
-              position: 'relative',
-              width: '100%',
-              height: '100%',
-              minHeight: '400px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}>
-              {/* This would be a good place to add product images or 3D elements */}
-              <Box sx={{
-                width: '300px',
-                height: '300px',
-                borderRadius: '20px',
-                background: 'rgba(255,255,255,0.1)',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                boxShadow: '0 15px 35px rgba(0,0,0,0.3)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                position: 'relative',
-                overflow: 'hidden',
-                '&::before': {
-                  content: '""',
-                  position: 'absolute',
-                  width: '150%',
-                  height: '150%',
-                  background: 'linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent)',
-                  transform: 'rotate(45deg)',
-                  animation: 'shine 3s infinite',
-                },
-                '@keyframes shine': {
-                  '0%': { left: '-50%', top: '-50%' },
-                  '100%': { left: '150%', top: '150%' }
-                }
-              }}>
-                <Typography variant="h4" sx={{ color: 'white', fontWeight: 300 }}>
-                  Premium Tea Collection
-                </Typography>
-              </Box>
-            </Box>
-          </Grid>
-        </Grid>
-    </Stack>
-  )
-}
+          {/* Left Content */}
+          <div className="space-y-8">
+            
+            {/* Title */}
+            <div className={`transform transition-all duration-800 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
+              <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-4">
+                Rich Blend Of
+                <br />
+                <span className="bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent">
+                  Natural Ingredients
+                </span>
+              </h1>
+              <div className="w-20 h-1 bg-gradient-to-r from-green-600 to-green-500 rounded-full" />
+            </div>
+
+            {/* Description */}
+            <div className={`transform transition-all duration-800 delay-200 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
+              <p className="text-lg text-gray-300 leading-relaxed max-w-xl">
+                Rodinea Label Tea Bags is a rich blend of natural ingredients that are carefully selected to provide a unique and flavorful experience.
+              </p>
+            </div>
+
+            {/* Benefits */}
+            <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 transform transition-all duration-800 delay-400 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
+              {benefits.map((benefit, index) => {
+                const IconComponent = benefit.icon;
+                return (
+                  <div key={index} className="group text-center">
+                    <div className="w-16 h-16 mx-auto mb-3 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:border-green-500/50 group-hover:bg-white/20 transition-all duration-300">
+                      <IconComponent className="w-8 h-8 text-green-500" />
+                    </div>
+                    <h3 className="text-white font-medium">{benefit.text}</h3>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Flavors Section */}
+            <div className={`space-y-6 transform transition-all duration-800 delay-600 ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+            }`}>
+              <div>
+                <h2 className="text-3xl lg:text-4xl font-bold text-white mb-3">
+                  Same Tea,{' '}
+                  <span className="text-transparent bg-gradient-to-r from-green-500 to-green-400 bg-clip-text">
+                    Different Flavours
+                  </span>
+                </h2>
+                <p className="text-gray-300 mb-6">
+                  Rodinea Label Tea Bags are available in different flavours, making it easy for you to choose the perfect taste for your needs.
+                </p>
+              </div>
+
+              {/* Flavor Tags */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                {teaFlavors.map((flavor, index) => (
+                  <div
+                    key={index}
+                    className="group flex items-center gap-2 px-4 py-2 rounded-full border-2 border-white/20 bg-white/5 backdrop-blur-sm hover:border-white/40 hover:bg-white/10 transition-all duration-300 cursor-pointer"
+                  >
+                    <div 
+                      className="w-3 h-3 rounded-full"
+                      style={{ backgroundColor: flavor.color }}
+                    />
+                    <span className="text-white text-sm font-medium">{flavor.name}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Button */}
+              <button className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold rounded-full hover:from-green-700 hover:to-green-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                Explore Our Teas
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Content - Feature Card */}
+          <div className={`flex justify-center lg:justify-end transform transition-all duration-1000 delay-800 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}>
+            <div className="relative">
+              <div className="w-80 h-96 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-8 flex flex-col justify-center items-center text-center hover:bg-white/15 transition-all duration-500 group">
+                
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10 space-y-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto">
+                    <Coffee className="w-10 h-10 text-white" />
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-white">
+                    Premium Tea Collection
+                  </h3>
+                  
+                  <p className="text-gray-300 leading-relaxed">
+                    Discover the perfect blend of tradition and innovation in every carefully crafted cup.
+                  </p>
+                  
+                  <div className="flex justify-center gap-2 pt-4">
+                    {[...Array(4)].map((_, i) => (
+                      <div 
+                        key={i} 
+                        className="w-2 h-2 bg-green-500 rounded-full opacity-60"
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              {/* Floating accent */}
+              <div className="absolute -top-3 -right-3 w-6 h-6 bg-gradient-to-r from-green-400 to-green-500 rounded-full opacity-80" />
+              <div className="absolute -bottom-3 -left-3 w-4 h-4 bg-gradient-to-r from-green-500 to-green-600 rounded-full opacity-60" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default TeaBags;
