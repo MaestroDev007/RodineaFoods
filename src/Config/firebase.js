@@ -4,13 +4,13 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyABiBs4VKkSpcpW8Y5UzSaiJgKjvY0WrtY",
-  authDomain: "rodinea-foods.firebaseapp.com",
-  projectId: "rodinea-foods",
-  storageBucket: "rodinea-foods.firebasestorage.app",
-  messagingSenderId: "191011106804",
-  appId: "1:191011106804:web:72153833c6b892bea293a1",
-  measurementId: "G-CE6LWPWMHZ",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_AUTH_DOMAIN,
+  projectId: process.env.REACT_PROJECT_ID,
+  storageBucket: process.env.REACT_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_ID,
+  measurementId: process.env.REACT_MEASUREMENT_ID,
 };
 
 
